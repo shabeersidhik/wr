@@ -1,0 +1,16 @@
+<div class="outer">
+    <div class="left-container">
+        <div class="side-align" routerLink="/home/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Dashboard</div>
+        <div class="side-align"  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Store</div>
+        <div class="side-align"  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Products</div>
+        <div class="side-align" routerLink="/home/invoice" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Invoices</div>
+        <div class="side-align"  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Quotation</div>
+        <div class="side-align" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Purchase Orders</div>
+        <div class="side-align" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Bills</div>
+        <div class="side-align"  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Payment</div>
+        <div class="side-align" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Reports</div>
+    </div>
+    <div class="right-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

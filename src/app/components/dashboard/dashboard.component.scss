@@ -1,0 +1,63 @@
+.outer{
+    margin: 3%;
+    .first-container{
+        display: flex;
+        justify-content: space-between !important;
+        .cards{
+            height: 10vh;
+            width: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #6C65D9;
+            .head {
+                font-weight: 600;
+                font-size: 18px;
+                color: white;
+                margin-bottom: 5px;
+            }
+            .sub-head {
+                font-size: 14px;
+                color: white;
+                margin: 0px;
+            }
+        }
+    }
+    .second-container {
+        padding: 30px 0;
+        display: flex;
+        justify-content: space-around;
+        .box{
+            width: 20%;
+            label{
+                margin-bottom: 10px;
+            }
+            mat-form-field {
+                width: 100% !important;
+            }
+            .filter-btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: lightgray;
+                margin-top: 10%;
+                height: 50px;
+                color: gray;
+                .filter-title{
+                    margin-top: 4%;
+                }
+            }
+        }
+    }
+    .third-container{
+        .head{
+            color: #6058cf;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        .demo-chart {
+            height: 280px;
+          }
+    }
+}

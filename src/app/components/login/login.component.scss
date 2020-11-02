@@ -1,0 +1,72 @@
+.outer{
+    width: 100vw;
+    height: 100vh;
+    
+    .container{
+        display: flex;
+    }
+    .left-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40vw;
+        .head{
+            font-size: 2rem;
+            margin-bottom: 5%;
+        }
+        .user-field{
+            width: 100%;
+        }
+        .error-msg{
+            color: red;
+        }
+        .btn-pos{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            .btn-login{
+                background-color: #6058cf;
+                width: 100%;
+                color: white;
+                outline: none;
+                cursor: pointer;
+                border: none;
+                border-radius: 20px;
+            }
+            .btn-login:hover{
+                opacity: 0.6;
+            }
+        }
+        .forgot-password{
+            margin-top: 5%;
+            text-align: center;
+            
+        }
+    }
+    .right-container{
+        height: 100vh;
+        background-color: #6058cf;
+        color: white;
+        width: 60vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .head{
+            font-size: 1.5rem;
+        }
+        .learn-btn{
+            margin-top: 3%;
+            background-color: #2bc9b9;
+            color: white;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+        }
+        .learn-btn:hover{
+            opacity: 0.6;
+        }
+    }
+}

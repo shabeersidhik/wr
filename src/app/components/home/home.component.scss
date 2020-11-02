@@ -1,0 +1,49 @@
+.outer{
+    display: flex;
+    .left-container{
+        padding-top: 2%;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 15vw;
+        background-color: #2e2980;
+        color: white;
+        .side-align{
+            margin-bottom: 5%;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            width: 150px;
+            padding-left: 5%;
+            height: 30px;
+            padding-top: 4%;
+        }
+        .side-align:hover{
+            outline: none;
+            border: none;
+            cursor: pointer;
+            padding-top: 4%;
+            background-color: #6c65d9;
+            border-radius: 10px;
+            width: 150px;
+            padding-left: 5%;
+            height: 30px;
+        }
+        .active-link{
+            outline: none;
+            border: none;
+            cursor: pointer;
+            padding-top: 4%;
+            background-color: #6c65d9;
+            border-radius: 10px;
+            width: 150px;
+            padding-left: 5%;
+            height: 30px;
+        }
+    }
+    .right-container{
+        width: 85vw;
+    }
+}

@@ -1,0 +1,36 @@
+<div class="outer">
+    <div class="container">
+        <div class="left-container">
+            <p class="head">LOGO</p>
+            <p class="sub-head">Log in Admin</p>
+            <form [formGroup]="loginForm">
+                <mat-form-field appearance="outline" class="user-field">
+                    <mat-label>User Name</mat-label>
+                    <input matInput placeholder="User Name" (keyup.enter)="onSubmit()"formControlName="strUsername">
+                </mat-form-field><br><br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your password</mat-label>
+                    <input (keyup.enter)="onSubmit()"matInput [type]="hide ? 'password' : 'text'" formControlName="strPassword">
+                    <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                </mat-form-field>
+                <div *ngIf="error">
+                    <h3 class="error-msg">Invalid Credentials!!!</h3>
+                </div>
+                <br><br>
+                <div class="btn-pos">
+                <button class="btn-login" mat-raised-button type="submit" [disabled]="!loginForm.valid" (click)="onSubmit()" fxFill>Log In</button>
+                </div>
+                <p class="forgot-password">Forgot Password?</p>
+            </form>
+        </div>
+        <div class="right-container">
+            <p class="head">Lorem ipsum is simply dummy text</p>
+            <p class="sub-head">Lorem ipsum is simply dummy text
+                of the printing and typesetting industry
+            </p>
+            <button mat-raised-button class="learn-btn">Learn more</button>
+        </div>
+    </div>
+</div>

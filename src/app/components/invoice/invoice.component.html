@@ -1,0 +1,85 @@
+<div class="outer">
+    <p class="head">Add New Invoices</p>
+    <form [formGroup]="addInvoice">
+    <div class="section-first">
+        <mat-card class="card1">
+            <div class="addNew">
+                    <label>Customer Name</label>&nbsp;&nbsp;
+                    <mat-form-field class="form-full"floatLabel="auto" hideRequiredMarker appearance="outline">
+                        <mat-label>Customer Name</mat-label>
+                        <input type="text" matInput formControlName="strCustomerName" >
+                        <mat-error *ngIf="addInvoice.get('strCustomerName').hasError('required')">
+                            Enter name
+                         </mat-error>
+                    </mat-form-field>&nbsp;&nbsp;
+        
+                    <label>Customer Detail</label>&nbsp;&nbsp;
+                    <mat-form-field class="form-detail"floatLabel="auto" hideRequiredMarker appearance="outline">
+                        <mat-label>Customer detail</mat-label>
+                        <textarea type="text" matInput formControlName="strCustomerDetail"></textarea>
+                        <mat-error *ngIf="addInvoice.get('strCustomerDetail').hasError('required')">
+                            Enter detail
+                         </mat-error>
+                    </mat-form-field>
+              </div>
+        </mat-card>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <mat-card class="card2">
+            <div  class="addNew">
+                <label>Invoice No</label>&nbsp;&nbsp;
+                    <mat-form-field class="form-half"floatLabel="auto" hideRequiredMarker appearance="outline">
+                        <mat-label>Invoice No</mat-label>
+                        <input type="text" matInput formControlName="dblInvoice" >
+                    </mat-form-field>&nbsp;&nbsp;&nbsp;
+                    <label>Invoice Date</label>&nbsp;&nbsp;
+                    <mat-form-field class="form-date" color="accent" appearance="outline">
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker2">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                      </mat-form-field>
+            </div>
+        </mat-card>
+    </div>
+    <div class="section-second">
+        <p class="head">
+            Invoice
+        </p>
+        <div class="table">
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th>Code</th>
+                    <th>Item Name</th>
+                    <th>Unit</th>
+                    <th>Price</th>
+                    <th>Tax(8%)</th>
+                    <th>Total</th>
+                </tr>
+                <tr *ngFor="let item of newArray;index as i">
+                    <td>{{i+1}}</td>
+                    <td><input (input)="getDetail($event.target.value,i)" type="text"></td>
+                    <td>{{item.name}}</td>
+                    <td><input type="number" value="{{item.qty}}" (change)="onUnitChange($event.target.value,i)" [min]=0></td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.tax}}</td>
+                    <td>{{item.totalPrice}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="add-btn-position">
+            <button mat-raised-button class="add-btn" (click)="addRow()">Add</button>
+        </div>
+        <div class="grand-total-position">
+           <p>Grand Total</p>
+           <p>{{totalAmount}}₹</p>
+        </div>
+        <div class="buttons">
+            <button (click)="onSubmit()"  [disabled]="!addInvoice.valid" mat-raised-button class="save-btn">Save</button>
+            <button (click)="onSubmit()" [disabled]="!addInvoice.valid" mat-raised-button class="btn">Save as draft</button>
+            <button mat-raised-button class="btn">Cancel</button>
+        </div>
+    </div>
+    </form>
+    
+</div>
