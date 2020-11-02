@@ -1,8 +1,9 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
-
+import {map, startWith} from 'rxjs/operators';
 @Component({
   selector: 'app-invoice',
   templateUrl: './invoice.component.html',
@@ -14,6 +15,9 @@ export class InvoiceComponent implements OnInit {
   newRow:object;
   newArray:any=[];
   totalAmount=0;
+  options=[];
+  myControl = new FormControl();
+  filteredOptions: Observable<string[]>;
   arrProducts=[
     {"code":'prd01','name':'Apple Mac Book pro','price':112990},
     {"code":'prd02','name':'Bluetooth speaker','price':1099},
@@ -29,6 +33,20 @@ export class InvoiceComponent implements OnInit {
       strDate:['']
     })
     this.addRow()
+this.arrProducts.forEach((item=>{
+  this.options.push(item.code)
+}))
+console.log(this.options);
+
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+  }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
   addRow(){
     this.newRow={code:'',name:'',price:'',totalPrice:'',tax:'',qty:''}
@@ -48,6 +66,7 @@ getDetail(e,i){
     
   });
 }
+
 onUnitChange(e,i){
   let index=this.arrProducts.findIndex(item=>item['code']===this.newArray[i]['code'])
   this.newArray[i]['price']=e*this.arrProducts[index]['price']
